@@ -1,0 +1,405 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x0
+LOAD /tmp/ccjRcQOi.ltrans0.ltrans.o
+LOAD /tmp/ccjdTS4i.debug.temp.o
+LOAD /tmp/ccsf8Emi.debug.temp.o
+LOAD obj/gcc8_a_support.o
+LOAD obj/depacker_doynax.o
+LOAD obj/depacker_doynax_vasm.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x80000000))
+                0x80000074                        . = (SEGMENT_START ("text-segment", 0x80000000) + SIZEOF_HEADERS)
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rela.dyn       0x80000074        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start = .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end = .)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT_NONE(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x00000000      0x92e
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ .text.unlikely
+                0x00000000       0x8c /tmp/ccjRcQOi.ltrans0.ltrans.o
+                0x00000000                _start
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ .text.startup  0x0000008c      0x410 /tmp/ccjRcQOi.ltrans0.ltrans.o
+                0x0000008c                main
+ *(.text.hot .text.hot.*)
+ *(SORT_BY_NAME(.text.sorted.*))
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000049c      0x2b2 /tmp/ccjRcQOi.ltrans0.ltrans.o
+                0x0000049c                strlen
+                0x000004b4                memset
+                0x00000620                memcpy
+                0x000006a0                memmove
+ *fill*         0x0000074e        0x2 4e714e71
+ .text          0x00000750      0x10c obj/gcc8_a_support.o
+                0x00000750                __mulsi3
+                0x00000772                __udivsi3
+                0x000007ce                __divsi3
+                0x000007f8                __modsi3
+                0x00000820                __umodsi3
+                0x0000084a                KPutCharX
+                0x00000858                PutChar
+ .text          0x0000085c       0xd2 obj/depacker_doynax.o
+                0x0000085c                _doynaxdepack_asm
+ *(.gnu.warning)
+
+CODE            0x0000092e       0xd2
+ CODE           0x0000092e       0xd2 obj/depacker_doynax_vasm.o
+                0x0000092e                _doynaxdepack_vasm
+
+.fini
+ *(SORT_NONE(.fini))
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata         0x00000a00      0x114
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00000a00      0x114 /tmp/ccjRcQOi.ltrans0.ltrans.o
+
+.rodata1
+ *(.rodata1)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.sframe
+ *(.sframe)
+ *(.sframe.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges*)
+                0x00002b14                        . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.sframe
+ *(.sframe)
+ *(.sframe.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges*)
+
+.tdata          0x00002b14        0x0
+                [!provide]                        PROVIDE (__tdata_start = .)
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x00002b14        0x0
+                0x00002b14                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                0x00002b14                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x00002b14        0x0
+                0x00002b14                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                0x00002b14                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x00002b14        0x0
+                0x00002b14                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                0x00002b14                        PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+                0x00002b14                        . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.got
+ *(.got.plt)
+ *(.igot.plt)
+ *(.got)
+ *(.igot)
+
+.data           0x00002b14        0x0
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00002b14        0x0 /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .data          0x00002b14        0x0 obj/gcc8_a_support.o
+ .data          0x00002b14        0x0 obj/depacker_doynax.o
+
+.data1
+ *(.data1)
+                0x00002b14                        _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x00002b14                        . = .
+                0x00002b14                        __bss_start = .
+
+.bss            0x00002b14        0xc
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00002b14        0xc /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .bss           0x00002b20        0x0 obj/gcc8_a_support.o
+ .bss           0x00002b20        0x0 obj/depacker_doynax.o
+ *(COMMON)
+                0x00002b20                        . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00002b20                        . = ALIGN (0x4)
+                0x00002b20                        . = SEGMENT_START ("ldata-segment", .)
+                0x00002b20                        . = ALIGN (0x4)
+                0x00002b20                        _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x00002b20                        . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x12
+ *(.comment)
+ .comment       0x00000000       0x12 /tmp/ccjRcQOi.ltrans0.ltrans.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012       0x13 /tmp/ccjdTS4i.debug.temp.o
+ .comment       0x00000012       0x13 /tmp/ccsf8Emi.debug.temp.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes .gnu.build.attributes.*)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x90
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x30 /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .debug_aranges
+                0x00000030       0x20 obj/gcc8_a_support.o
+ .debug_aranges
+                0x00000050       0x20 obj/depacker_doynax.o
+ .debug_aranges
+                0x00000070       0x20 obj/depacker_doynax_vasm.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x5837
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0xf01 /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .debug_info    0x00000f01     0x3af7 /tmp/ccjdTS4i.debug.temp.o
+                0x00000f01                main.c.c6563864
+ .debug_info    0x000049f8      0xcfa /tmp/ccsf8Emi.debug.temp.o
+                0x000049f8                gcc8_c_support.c.8b28d089
+ .debug_info    0x000056f2       0x89 obj/gcc8_a_support.o
+ .debug_info    0x0000577b       0x35 obj/depacker_doynax.o
+ .debug_info    0x000057b0       0x87 obj/depacker_doynax_vasm.o
+
+.debug_abbrev   0x00000000      0x5ec
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x112 /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .debug_abbrev  0x00000112      0x21d /tmp/ccjdTS4i.debug.temp.o
+ .debug_abbrev  0x0000032f      0x269 /tmp/ccsf8Emi.debug.temp.o
+ .debug_abbrev  0x00000598       0x21 obj/gcc8_a_support.o
+ .debug_abbrev  0x000005b9       0x21 obj/depacker_doynax.o
+ .debug_abbrev  0x000005da       0x12 obj/depacker_doynax_vasm.o
+
+.debug_line     0x00000000     0x2712
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000     0x1dc3 /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .debug_line    0x00001dc3      0x53a /tmp/ccjdTS4i.debug.temp.o
+ .debug_line    0x000022fd      0x1c0 /tmp/ccsf8Emi.debug.temp.o
+ .debug_line    0x000024bd       0xd5 obj/gcc8_a_support.o
+ .debug_line    0x00002592       0xb3 obj/depacker_doynax.o
+ .debug_line    0x00002645       0xcd obj/depacker_doynax_vasm.o
+
+.debug_frame    0x00000000      0x248
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x17c /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .debug_frame   0x0000017c       0xcc obj/gcc8_a_support.o
+
+.debug_str      0x00000000      0x38e
+ *(.debug_str)
+ .debug_str     0x00000000        0x0 /tmp/ccjRcQOi.ltrans0.ltrans.o
+ .debug_str     0x00000000      0x20f /tmp/ccjdTS4i.debug.temp.o
+ .debug_str     0x0000020f       0x8a /tmp/ccsf8Emi.debug.temp.o
+ .debug_str     0x00000299       0xf5 obj/gcc8_a_support.o
+                                 0xa9 (size before relaxing)
+ .debug_str     0x0000038e       0x7b obj/depacker_doynax.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000       0x18
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x18 obj/depacker_doynax_vasm.o
+
+.debug_addr
+ *(.debug_addr)
+
+.debug_line_str
+ *(.debug_line_str)
+
+.debug_loclists
+                0x00000000     0x1141
+ *(.debug_loclists)
+ .debug_loclists
+                0x00000000     0x1141 /tmp/ccjRcQOi.ltrans0.ltrans.o
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_names
+ *(.debug_names)
+
+.debug_rnglists
+                0x00000000      0x10a
+ *(.debug_rnglists)
+ .debug_rnglists
+                0x00000000      0x10a /tmp/ccjRcQOi.ltrans0.ltrans.o
+
+.debug_str_offsets
+ *(.debug_str_offsets)
+
+.debug_sup
+ *(.debug_sup)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(out/a.elf elf32-m68k)
